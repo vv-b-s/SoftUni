@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Date + 1000 days", "Date + 1000 days\Date + 1000 days.csproj", "{FA5AFA71-43CB-4198-94FC-F1DE6BE0418D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-Ratings", "WebApp-Ratings\WebApp-Ratings.csproj", "{B9C906B2-6161-4C7A-BC69-17F37ADED522}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{FA5AFA71-43CB-4198-94FC-F1DE6BE0418D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA5AFA71-43CB-4198-94FC-F1DE6BE0418D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA5AFA71-43CB-4198-94FC-F1DE6BE0418D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9C906B2-6161-4C7A-BC69-17F37ADED522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9C906B2-6161-4C7A-BC69-17F37ADED522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9C906B2-6161-4C7A-BC69-17F37ADED522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9C906B2-6161-4C7A-BC69-17F37ADED522}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
