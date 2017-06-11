@@ -1,4 +1,9 @@
-﻿public class Employee
+﻿using System;
+using System.Globalization;
+using System.Text;
+using static System.Console;
+
+public class Employee
 {
     public string FirstName { set; get; }
     public string LastName { set; get; }
