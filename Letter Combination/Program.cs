@@ -18,7 +18,6 @@ class Program
                         Write(i + "" + j + "" + k + " ");
                         combinations++;
                     }
-        Write(combinations + "\n");
     }
 
 

@@ -1,49 +1,72 @@
 ﻿using System;
 using System.Text;
-using static System.Console;
+using System.Reflection; // <------------- Ще е забавно!
+using Microsoft.CSharp;
+using System.CodeDom.Compiler;
 
-class Program
+namespace HelloSoftuni
 {
-    static void Main()
+    class HelloSoftUni
     {
-        int size = (int)ReadNum();
-
-        int LeftRight = size / 2 - 1;
-        int middle = 0;
-
-        for(int i=0;i<size/2;i++)
+        static void Main()
         {
-            WriteLine("{0}#{1}#{0}", new string('.', LeftRight), new string('.', middle));
-            LeftRight--;
-            middle += 2;
-        }
-        LeftRight++;
-        middle -= 2;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"
+using System;
+using System.Text;
+namespace HelloSoftuni {
+   public class AsciiTableClass {
+       public static string[] AsciiTable = {");
+            for (int i = 0; i < 128; i++)
+            {
+                if (i < 32 || i > 127)
+                {
+                    sb.Append("\"\"");
+                }
+                else
+                {
+                    char c = (char)i;
+                    if (c == '"')
+                    {
+                        sb.Append("@\"\"\"\"");
+                    }
+                    else
+                    {
+                        sb.Append("@\"");
+                        sb.Append(c);
+                        sb.Append("\"");
+                    }
+                }
+                sb.Append(@", ");
+            }
+            sb.Append(@"};
+       public static string HelloSoftuni(string[] tbl) {
+           StringBuilder sb = new StringBuilder();
+");
+            foreach (char c in "Hello C#!")
+            {
+                sb.Append(@"            sb.Append(tbl[" + (int)c + "]);\r\n");
+            }
+            sb.Append(@"            return sb.ToString();
+       }
+   }
+}");
+            CSharpCodeProvider shittycomp = new CSharpCodeProvider();
+            CompilerParameters softparams = new CompilerParameters();
+            softparams.GenerateInMemory = true;
+            softparams.GenerateExecutable = false;
+            CompilerResults res = shittycomp.CompileAssemblyFromSource(softparams, sb.ToString());
+            if (res.Errors.HasErrors)
+            {
+                Console.WriteLine("Zaminavai, pich");
+                return;
+            }
+            Assembly assembly = res.CompiledAssembly;
+            Type finalres = assembly.GetType("HelloSoftuni.AsciiTableClass");
+            FieldInfo softunitable = finalres.GetField("AsciiTable", BindingFlags.Public | BindingFlags.Static);
+            MethodInfo finalSoftUniMethod = finalres.GetMethod("HelloSoftuni", BindingFlags.Public | BindingFlags.Static);
+            Console.WriteLine(finalSoftUniMethod.Invoke(null, new object[] { softunitable.GetValue(null) }));
 
-        for(int i=0;i<size/4;i++)
-        {
-            WriteLine("{0}#{1}#{0}", new string('.', LeftRight), new string('.', middle));
-            LeftRight++;
-            middle -= 2;
         }
-        WriteLine(new string('-', size));
-        int middleLeft = size / 2,middleRight = size/2;
-        LeftRight = 0;
-        for(int i=0;i<size/2;i++)
-        {
-            WriteLine("{0}{1}{2}{0}",new string('.',LeftRight),new string('\\',middleLeft),new string('/',middleRight));
-            middleRight--;
-            middleLeft--;
-            LeftRight++;
-        }
-    }
-
-
-    static decimal ReadNum()
-    {
-        string input = ReadLine();
-        decimal output;
-        decimal.TryParse(input, out output);
-        return output;
     }
 }
