@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
@@ -31,10 +31,15 @@ class Dragon
     {
         if (hp != "null")
             health = int.Parse(hp);
+        else health = 250;
+
         if (dmg != "null")
             damage = int.Parse(dmg);
+        else damage = 45;
+
         if (arm != "null")
             armor = int.Parse(arm);
+        else armor = 10;
     }
 }
 
