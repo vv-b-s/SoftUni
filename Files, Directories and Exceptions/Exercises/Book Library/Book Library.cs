@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
@@ -8,9 +8,10 @@ using static System.Console;
 
 class Book
 {
+
     public string Title { set; get; }
     public string Publisher { set; get; }
-    public DateTime ReleaseDate { set; get; }
+    public string ReleaseDate { set; get; }
     string ISBN { set; get; }
     public decimal Price { set; get; }
 
@@ -18,7 +19,7 @@ class Book
     {
         Title = title;
         Publisher = publisher;
-        ReleaseDate = DateTime.ParseExact(releaseDate, "d.MM.yyyy", CultureInfo.InvariantCulture);
+        ReleaseDate = releaseDate;
         this.ISBN = ISBN;
         Price = decimal.Parse(price);
     }
@@ -46,37 +47,16 @@ class Library
 
         return sB.ToString();
     }
-
-    public string ListBooksAfterDate(string day, string month, string year)
-    {
-        string formatedDate = $"{day}.{month}.{year}";
-        var date = DateTime.ParseExact(formatedDate, "d.MM.yyyy", CultureInfo.InvariantCulture);
-
-        var allBooksList = authorBooks.Values.ToList();
-        var booksAfterCertainDate = new List<Book>();
-
-        foreach (var bookList in allBooksList)
-            foreach (var book in bookList)
-                if (book.ReleaseDate.Date > date.Date)
-                    booksAfterCertainDate.Add(book);
-
-        booksAfterCertainDate = booksAfterCertainDate.OrderBy(b => b.ReleaseDate.Date).ThenBy(b => b.Title).ToList();
-
-        var bookData = new StringBuilder();
-        foreach (var book in booksAfterCertainDate)
-            bookData.AppendLine(book.Title + " -> " + book.ReleaseDate.Date.ToString("d.MM.yyyy"));
-        return bookData.ToString();
-    }
 }
 
 class Program
 {
     static void Main()
     {
-        var inText = File.ReadAllLines(@"X:\Development\SoftUni\Files, Directories and Exceptions\Exercises\Book Library Modification\input.txt");
+        var inText = File.ReadAllLines(@"X:\Development\SoftUni\Files, Directories and Exceptions\Exercises\Book Library\input.txt");
         var lib = new Library();
 
-        for (int i = 1; i < int.Parse(inText[0]) + 1; i++)
+        for (int i = 1; i < int.Parse(inText[0])+1; i++)
         {
             var input = inText[i].Split().ToArray();
             string bookName = input[0];
@@ -91,9 +71,7 @@ class Program
             else
                 lib.AddAuthor(bookAuthor, new Book(bookName, publisher, releaseDate, ISBN, price));
         }
-        string[] afterDate = inText[inText.Length-1].Split('.');
 
-        File.WriteAllText(@"X:\Development\SoftUni\Files, Directories and Exceptions\Exercises\Book Library Modification\output.txt",
-            lib.ListBooksAfterDate(afterDate[0], afterDate[1], afterDate[2]));
+        File.WriteAllText(@"X:\Development\SoftUni\Files, Directories and Exceptions\Exercises\Book Library\output.txt",lib.ListAuthorSalery());
     }
 }
