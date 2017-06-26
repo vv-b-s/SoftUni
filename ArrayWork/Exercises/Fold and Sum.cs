@@ -23,22 +23,6 @@ class Program
         WriteLine(PrintArray(foldedArr, " "));
     }
 
-    static int SumOfTheLeftSide(int[] arr,int stopIndex)
-    {
-        int sum = 0;
-        for (int i = 0; i < stopIndex; i++)
-            sum += arr[i];
-        return sum;
-    }
-
-    static int SumOfTheRightSide(int[] arr, int stopIndex)
-    {
-        int sum = 0;
-        for (int i = arr.Length-1; i > stopIndex; i--)
-            sum += arr[i];
-        return sum;
-    }
-
     static string PrintArray<TVariable>(TVariable[] arr, string format)
     {
         var sB = new StringBuilder();
