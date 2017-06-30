@@ -6,22 +6,6 @@ using System.Linq;
 using static System.Console;
 using System.Globalization;
 
-class Weather
-{
-    public string City { set; get; }
-    public double AverageTemp { set; get; }
-    public string WeatherType { set; get; }
-
-    public Weather(string city, string avgTemp, string weatherType)
-    {
-        City = city;
-        AverageTemp = double.Parse(avgTemp);
-        WeatherType = weatherType;
-    }
-
-    public override string ToString() => $"{City} => {AverageTemp:f2} => {WeatherType}";    
-}
-
 class Program
 {
     static void Main()
