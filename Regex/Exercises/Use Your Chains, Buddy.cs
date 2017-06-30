@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ class Program
 {
     static void Main()
     {
-        var paragraphs = Regex.Matches(ReadLine(), @"(?<=<p>).+?(?=<\/p>)").Cast<Match>().Select(m => m.Value).ToList();
+        var paragraphs = Regex.Matches(ReadLine(), @"(?<=<p>)[^\/]+(?=<\/p>)").Cast<Match>().Select(m => m.Value).ToList();
         for (int i = 0; i < paragraphs.Count; i++)
         {
             paragraphs[i] = Regex.Replace(paragraphs[i], @"[^a-z0-9]+", " ");
