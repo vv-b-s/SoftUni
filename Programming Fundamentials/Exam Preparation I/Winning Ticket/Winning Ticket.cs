@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
@@ -24,7 +24,9 @@ class Program
                     if (Regex.IsMatch(substring[0], $@"\{symbol}{AddVar("6,")}") && Regex.IsMatch(substring[1], $@"\{symbol}{AddVar("6,")}"))
                         winSym = symbol;
 
-                var count = substring[0].Count(s=>s==winSym)==substring[1].Count(c=>c==winSym)? substring[1].Count(c => c == winSym):0;
+                var count = substring[0].Count(s=>s==winSym)==substring[1].Count(c=>c==winSym)? 
+                    substring[1].Count(c => c == winSym):
+                    substring.Min(s=>s.Count(c=>c==winSym));
 
                 if (count >= 6 && count <= 9)
                     WriteLine($"ticket \"{ ticket}\" - {count}{winSym}");
