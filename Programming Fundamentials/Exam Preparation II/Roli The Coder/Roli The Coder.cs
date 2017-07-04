@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
@@ -42,9 +42,9 @@ class Program
 
         string input;
         while ((input = ReadLine()) != "Time for Code")
-            if (Regex.IsMatch(input, @"^\w+\s+\#\w+(\s+@\w+(\s+\@\w+)*)*$"))
+            if (Regex.IsMatch(input, @"[0-9a-zA-Z]+\s+#[0-9a-zA-Z]+\s*(@[a-zA-Z]+\s*)*"))
             {
-                var temp = Regex.Split(input, @"\s+");
+                var temp = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 var id = temp[0];
                 var eventName = temp[1].Substring(1);
                 var users = temp.Skip(2).ToList();
