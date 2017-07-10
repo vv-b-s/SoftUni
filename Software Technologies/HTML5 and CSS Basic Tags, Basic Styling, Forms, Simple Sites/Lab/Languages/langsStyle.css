@@ -1,0 +1,12 @@
+body{
+    background: #EEE;
+    line-height: 1.5em;
+    font-size: 24pt;
+}
+
+.markLang{
+    border: 1px solid #AAA;
+    border-radius: 10px;
+    background-color: #CCC;
+    padding: 10px;
+}

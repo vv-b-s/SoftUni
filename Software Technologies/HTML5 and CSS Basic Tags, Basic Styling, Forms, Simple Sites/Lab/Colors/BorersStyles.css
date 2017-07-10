@@ -1,0 +1,23 @@
+.redStyle{
+    border: 2px solid red;
+    border-radius: 10px;
+    background: lightgray;
+    text-align: center;
+    font-size: 30px;
+}
+
+.greenStyle{
+    border: 2px solid green;
+    border-radius: 10px;
+    background: lightgray;
+    text-align: center;
+    font-size: 30px;
+}
+
+.blueStyle{
+    border: 2px solid blue;
+    border-radius: 10px;
+    background: lightgray;
+    text-align: center;
+    font-size: 30px;
+}

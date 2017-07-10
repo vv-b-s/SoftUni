@@ -10,7 +10,6 @@ class Program
 {
     static void Main()
     {
-        var thing = new { ama = 5, panama = "hi"  };
-        WriteLine(thing.panama);
+       object[] things = new []{thing1 = 5, thing2 = "nest"};
     }
 }
