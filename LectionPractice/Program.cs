@@ -10,6 +10,5 @@ class Program
 {
     static void Main()
     {
-       object[] things = new []{thing1 = 5, thing2 = "nest"};
     }
 }
