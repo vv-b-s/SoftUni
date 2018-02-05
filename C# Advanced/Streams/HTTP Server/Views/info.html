@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+	<title>Info Page</title>
+</head>
+<body>
+	<h2>Current Time: <span id="dateTimeDisplay"></span></h2>
+	<h2>Logical Processors: <span id="logicalCores"></span></h2>
+    <script>
+        document.getElementById("dateTimeDisplay").innerHTML = Date();
+        document.getElementById("logicalCores").innerHTML = navigator.hardwareConcurrency;
+    </script>
+</body>
+</html>
