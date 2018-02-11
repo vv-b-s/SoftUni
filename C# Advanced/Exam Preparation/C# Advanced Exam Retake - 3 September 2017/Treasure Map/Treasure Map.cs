@@ -44,7 +44,7 @@ class TreasureMap
         //get the valid patterns
         var validPatterns = patterns.Where(pattern => validations.All(validation => validation.IsMatch(pattern)));
 
-        //Position the patterns accurateliy
+        //Position the patterns accurately
         var patternsPosition = new Dictionary<int, string>();
         foreach(var validPattern in validPatterns)
         {
