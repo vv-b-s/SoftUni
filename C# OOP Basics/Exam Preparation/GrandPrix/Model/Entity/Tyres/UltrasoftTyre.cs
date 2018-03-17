@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 public class UltrasoftTyre : Tyre
 {
@@ -9,7 +7,6 @@ public class UltrasoftTyre : Tyre
     public UltrasoftTyre(double hardness, double grip) : base(hardness)
     {
         this.Grip = grip;
-        this.Name = "Ultrasoft";
     }
 
     public double Grip
@@ -18,9 +15,11 @@ public class UltrasoftTyre : Tyre
         private set => this.grip = value;
     }
 
-    protected override int BlowUpLimit => 30;
+    public override string Name => "Ultrasoft";
 
-    public override void ReduceDegradation()
+    protected override double MinimumDegradation => 30;
+
+    public override void DegradateTyre()
     {
         this.Degradation -= this.Hardness + this.Grip;
     }

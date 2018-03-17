@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 public abstract class Tyre : ITyre
 {
+    private const double InitialDegradation = 100;
+
     private double hardness;
     private double degradation;
-    private string name;
 
     protected Tyre(double hardness)
     {
-        this.Degradation = 100;
         this.Hardness = hardness;
+        this.Degradation = InitialDegradation;
     }
 
-    public string Name
-    {
-        get => this.name;
-        protected set => this.name = value;
-    }
+    public abstract string Name { get; }
 
     public double Hardness
     {
@@ -31,14 +26,17 @@ public abstract class Tyre : ITyre
         get => this.degradation;
         protected set
         {
-            if (value < BlowUpLimit)
-                throw new ArgumentException("Blown Tyre");
+            if (value < this.MinimumDegradation)
+                throw new FailedDriverException("Blown Tyre");
 
             else this.degradation = value;
         }
     }
 
-    protected virtual int BlowUpLimit => 0;
+    protected virtual double MinimumDegradation => 0;
 
-    public virtual void ReduceDegradation() => this.Degradation -= this.Hardness;
+    public virtual void DegradateTyre()
+    {
+        this.Degradation -= this.Hardness;
+    }
 }
