@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration_Tests.App", "Integration_Tests.App\Integration_Tests.App.csproj", "{8EE49237-C199-4995-8CAA-9EAADCB62A29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration_Tests.Tests", "Integration_Tests.Tests\Integration_Tests.Tests.csproj", "{74CDE6C7-C388-4343-ACB3-C0EE52110E9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EE49237-C199-4995-8CAA-9EAADCB62A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE49237-C199-4995-8CAA-9EAADCB62A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE49237-C199-4995-8CAA-9EAADCB62A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE49237-C199-4995-8CAA-9EAADCB62A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74CDE6C7-C388-4343-ACB3-C0EE52110E9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74CDE6C7-C388-4343-ACB3-C0EE52110E9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74CDE6C7-C388-4343-ACB3-C0EE52110E9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74CDE6C7-C388-4343-ACB3-C0EE52110E9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19B6DF1E-8C7D-4665-99BD-A035A6D23299}
+	EndGlobalSection
+EndGlobal
